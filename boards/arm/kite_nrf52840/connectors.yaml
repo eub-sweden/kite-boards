@@ -1,0 +1,53 @@
+name: kite_nrf52840
+connectors:
+  - name: pmod1
+    type: pmod-double
+    pins:
+      io1: P0.30
+      io2: P0.20
+      io3: P0.21
+      io4: P1.09
+      io5: P0.29
+      io6: P0.11
+      io7: P0.23
+      io8: P0.19
+  - name: pmod2
+    type: pmod-double
+    pins:
+      io1: P0.31
+      io2: P0.14
+      io3: P0.12
+      io4: P0.15
+      io5: P1.02
+      io6: P1.05
+      io7: P0.25
+      io8: P1.01
+  - name: pmod3
+    type: pmod-double
+    pins:
+      io1: P0.02
+      io2: P0.08
+      io3: P0.07
+      io4: P1.08
+      io5: P1.03
+      io6: P1.15
+      io7: P1.06
+      io8: P1.10
+  - name: pmod4
+    type: pmod-double
+    pins:
+      io1: P0.03
+      io2: P0.17
+      io3: P0.22
+      io4: P0.27
+      io5: P1.14
+      io6: P1.13
+      io7: P1.11
+      io8: P1.12
+  - name: pmod5
+    type: pmod-single
+    pins:
+      io1: P0.05
+      io2: P0.04
+      io3: P0.28
+      io4: P0.26
