@@ -1,0 +1,2 @@
+# Needed by gen-connectors-dtsi.py
+Jinja2
