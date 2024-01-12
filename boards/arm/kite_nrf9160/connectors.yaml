@@ -1,0 +1,43 @@
+# Note: This file is picked up by ${EUB_ROOT}/scripts/gen-connectors-dtsi.py
+name: kite_nrf9160
+connectors:
+  - name: pmod1
+    type: pmod-double
+    pins:
+      io1: P0.26
+      io2: P0.25
+      io3: P0.23
+      io4: P0.22
+      io5: P0.27
+      io6: P0.24
+      io7: P0.20  # P0.20 / AIN7
+      io8: P0.19  # P0.19 / AIN6
+  - name: pmod2
+    type: pmod-double
+    pins:
+      io1: P0.31
+      io2: P0.00
+      io3: P0.01
+      io4: P0.02
+      io5: P0.30
+      io6: P0.29
+      io7: P0.18  # P0.18 / AIN5
+      io8: P0.17  # P0.17 / AIN4
+  - name: pmod3
+    type: pmod-double
+    pins:
+      io1: P0.16  # P0.16 / AIN3
+      io2: P0.06
+      io3: P0.07
+      io4: P0.12
+      io5: P0.08
+      io6: P0.05
+      io7: P0.04
+      io8: P0.03
+  - name: pmod4
+    type: pmod-single
+    pins:
+      io1: P0.15  # P0.15 / AIN2
+      io2: P0.14  # P0.14 / AIN1
+      io3: P0.13  # P0.13 / AIN0
+      io4: P0.11
