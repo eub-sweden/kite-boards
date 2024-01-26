@@ -1,0 +1,195 @@
+/*
+ * Copyright (c) 2023 Elektronikutvecklingsbyrån EUB AB
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+#include "kite_nrf9160_common-pinctrl.dtsi"
+#include "kite_nrf9160-connectors-gpio.dtsi"
+#include "kite_nrf9160-connectors-pinctrl.dtsi"
+#include <dt-bindings/gpio/pmod.h>
+
+/ {
+	model = "EUB Kite-nRF9160";
+	compatible = "eub,kite-nrf9160";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart0;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led0: led_0 {
+			gpios = <&gpio0 10 0>;
+			label = "Green LED";
+		};
+		led1: led_1 {
+			gpios = <&gpio0 9 0>;
+			label = "Orange LED";
+		};
+	};
+
+	pwmleds {
+		compatible = "pwm-leds";
+		pwm_led0: pwm_led_0 {
+			pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		};
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		button0: button_0 {
+			gpios = <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "USER_BUTTON";
+		};
+	};
+
+	aliases {
+		led0 = &led0;
+		led1 = &led1;
+		green-led = &led0;
+		orange-led = &led1;
+		pwm-led0 = &pwm_led0;
+		sw0 = &button0;
+		user-button = &button0;
+		bootloader-led0 = &led0;
+		mcuboot-button0 = &button0;
+		mcuboot-led0 = &led0;
+		watchdog0 = &wdt0;
+	};
+
+	/* Note: The regulator API is honestly not great, so you should feel
+	 * free to set CONFIG_REGULATOR=n and use this as a normal GPIO pin. If
+	 * you do, the DTS node (and its properties) will still be accessible.
+	 * This fact is utilized in board.c to enable PMOD1 at boot even if
+	 * CONFIG_REGULATOR=n. If this is not what you want, you can delete the
+	 * `regulator-boot-on` property in your dts overlay:
+	 *     &en_pmod1 {
+	 *         /delete-property/ regulator-boot-on;
+	 *     }
+	 */
+	en_pmod1: pmod1-pwr-ctrl {
+		compatible = "regulator-fixed-sync", "regulator-fixed";
+		status = "okay";
+		regulator-name = "EN_PMOD1";
+
+		enable-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+		regulator-boot-on;
+	};
+
+};
+
+&adc {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&uart_pmod3_default>;
+	pinctrl-1 = <&uart_pmod3_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&i2c2 {
+	status = "disabled";
+	pinctrl-0 = <&i2c_pmod1_default>;
+	pinctrl-1 = <&i2c_pmod1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&pwm0 {
+	status = "okay";
+	pinctrl-0 = <&pwm0_default>;
+	pinctrl-1 = <&pwm0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&spi3 {
+	compatible = "nordic,nrf-spim";
+	status = "disabled";
+
+	cs-gpios = <&pmod2 PMOD_SPI_CS GPIO_ACTIVE_LOW>;
+	pinctrl-0 = <&spi_pmod2_default>;
+	pinctrl-1 = <&spi_pmod2_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&timer0 {
+	status = "okay";
+};
+
+&timer1 {
+	status = "okay";
+};
+
+&timer2 {
+	status = "okay";
+};
+
+&flash0 {
+
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 0x10000>;
+		};
+		slot0_partition: partition@10000 {
+			label = "image-0";
+		};
+		slot0_ns_partition: partition@50000 {
+			label = "image-0-nonsecure";
+		};
+		slot1_partition: partition@80000 {
+			label = "image-1";
+		};
+		slot1_ns_partition: partition@c0000 {
+			label = "image-1-nonsecure";
+		};
+		scratch_partition: partition@f0000 {
+			label = "image-scratch";
+			reg = <0x000f0000 0xa000>;
+		};
+		storage_partition: partition@fa000 {
+			label = "storage";
+			reg = <0x000fa000 0x00006000>;
+		};
+	};
+};
+
+/ {
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		sram0_s: image_s@20000000 {
+			/* Secure image memory */
+		};
+
+		sram0_modem: image_modem@20016000 {
+			/* Modem (shared) memory */
+		};
+
+		sram0_ns: image_ns@20020000 {
+			/* Non-Secure image memory */
+		};
+	};
+};
+
+/* Include partition configuration file */
+#include "kite_nrf9160_partition_conf.dts"
