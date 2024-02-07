@@ -26,9 +26,9 @@
 		led1 = &orange_led;
 		pwm-led0 = &pwm_led0;
 		sw0 = &user_button;
-		bootloader-led0 = &led0;
-		mcuboot-button0 = &button0;
-		mcuboot-led0 = &led0;
+		bootloader-led0 = &green_led;
+		mcuboot-button0 = &user_button;
+		mcuboot-led0 = &green_led;
 		watchdog0 = &wdt0;
 	};
 
