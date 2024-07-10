@@ -27,6 +27,50 @@
 		};
 	};
 
+	uart_pmod1a_default: uart_pmod1a_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 25)>,
+				<NRF_PSEL(UART_RTS, 0, 22)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 23)>,
+				<NRF_PSEL(UART_CTS, 0, 26)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod1a_sleep: uart_pmod1a_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 25)>,
+				<NRF_PSEL(UART_RX, 0, 23)>,
+				<NRF_PSEL(UART_RTS, 0, 22)>,
+				<NRF_PSEL(UART_CTS, 0, 26)>;
+			low-power-enable;
+		};
+	};
+
+	uart_pmod1b_default: uart_pmod1b_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 24)>,
+				<NRF_PSEL(UART_RTS, 0, 19)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 20)>,
+				<NRF_PSEL(UART_CTS, 0, 27)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod1b_sleep: uart_pmod1b_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 24)>,
+				<NRF_PSEL(UART_RX, 0, 20)>,
+				<NRF_PSEL(UART_RTS, 0, 19)>,
+				<NRF_PSEL(UART_CTS, 0, 27)>;
+			low-power-enable;
+		};
+	};
+
 	uart_pmod2_default: uart_pmod2_default {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 0)>,
@@ -49,6 +93,50 @@
 		};
 	};
 
+	uart_pmod2a_default: uart_pmod2a_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 0)>,
+				<NRF_PSEL(UART_RTS, 0, 2)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 1)>,
+				<NRF_PSEL(UART_CTS, 0, 31)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod2a_sleep: uart_pmod2a_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 0)>,
+				<NRF_PSEL(UART_RX, 0, 1)>,
+				<NRF_PSEL(UART_RTS, 0, 2)>,
+				<NRF_PSEL(UART_CTS, 0, 31)>;
+			low-power-enable;
+		};
+	};
+
+	uart_pmod2b_default: uart_pmod2b_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 29)>,
+				<NRF_PSEL(UART_RTS, 0, 17)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 18)>,
+				<NRF_PSEL(UART_CTS, 0, 30)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod2b_sleep: uart_pmod2b_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 29)>,
+				<NRF_PSEL(UART_RX, 0, 18)>,
+				<NRF_PSEL(UART_RTS, 0, 17)>,
+				<NRF_PSEL(UART_CTS, 0, 30)>;
+			low-power-enable;
+		};
+	};
+
 	uart_pmod3_default: uart_pmod3_default {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 6)>,
@@ -67,6 +155,50 @@
 				<NRF_PSEL(UART_RX, 0, 7)>,
 				<NRF_PSEL(UART_RTS, 0, 12)>,
 				<NRF_PSEL(UART_CTS, 0, 16)>;
+			low-power-enable;
+		};
+	};
+
+	uart_pmod3a_default: uart_pmod3a_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 6)>,
+				<NRF_PSEL(UART_RTS, 0, 12)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 7)>,
+				<NRF_PSEL(UART_CTS, 0, 16)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod3a_sleep: uart_pmod3a_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 6)>,
+				<NRF_PSEL(UART_RX, 0, 7)>,
+				<NRF_PSEL(UART_RTS, 0, 12)>,
+				<NRF_PSEL(UART_CTS, 0, 16)>;
+			low-power-enable;
+		};
+	};
+
+	uart_pmod3b_default: uart_pmod3b_default {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 5)>,
+				<NRF_PSEL(UART_RTS, 0, 3)>;
+		};
+		group2 {
+			psels = <NRF_PSEL(UART_RX, 0, 4)>,
+				<NRF_PSEL(UART_CTS, 0, 8)>;
+			bias-pull-up;
+		};
+	};
+
+	uart_pmod3b_sleep: uart_pmod3b_sleep {
+		group1 {
+			psels = <NRF_PSEL(UART_TX, 0, 5)>,
+				<NRF_PSEL(UART_RX, 0, 4)>,
+				<NRF_PSEL(UART_RTS, 0, 3)>,
+				<NRF_PSEL(UART_CTS, 0, 8)>;
 			low-power-enable;
 		};
 	};
@@ -109,6 +241,36 @@
 		};
 	};
 
+	i2c_pmod1a_default: i2c_pmod1a_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+				<NRF_PSEL(TWIM_SCL, 0, 23)>;
+		};
+	};
+
+	i2c_pmod1a_sleep: i2c_pmod1a_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+				<NRF_PSEL(TWIM_SCL, 0, 23)>;
+			low-power-enable;
+		};
+	};
+
+	i2c_pmod1b_default: i2c_pmod1b_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 19)>,
+				<NRF_PSEL(TWIM_SCL, 0, 20)>;
+		};
+	};
+
+	i2c_pmod1b_sleep: i2c_pmod1b_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 19)>,
+				<NRF_PSEL(TWIM_SCL, 0, 20)>;
+			low-power-enable;
+		};
+	};
+
 	i2c_pmod2_default: i2c_pmod2_default {
 		group1 {
 			psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
@@ -124,6 +286,36 @@
 		};
 	};
 
+	i2c_pmod2a_default: i2c_pmod2a_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+		};
+	};
+
+	i2c_pmod2a_sleep: i2c_pmod2a_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+			low-power-enable;
+		};
+	};
+
+	i2c_pmod2b_default: i2c_pmod2b_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+				<NRF_PSEL(TWIM_SCL, 0, 18)>;
+		};
+	};
+
+	i2c_pmod2b_sleep: i2c_pmod2b_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+				<NRF_PSEL(TWIM_SCL, 0, 18)>;
+			low-power-enable;
+		};
+	};
+
 	i2c_pmod3_default: i2c_pmod3_default {
 		group1 {
 			psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
@@ -135,6 +327,36 @@
 		group1 {
 			psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
 				<NRF_PSEL(TWIM_SCL, 0, 7)>;
+			low-power-enable;
+		};
+	};
+
+	i2c_pmod3a_default: i2c_pmod3a_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
+				<NRF_PSEL(TWIM_SCL, 0, 7)>;
+		};
+	};
+
+	i2c_pmod3a_sleep: i2c_pmod3a_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
+				<NRF_PSEL(TWIM_SCL, 0, 7)>;
+			low-power-enable;
+		};
+	};
+
+	i2c_pmod3b_default: i2c_pmod3b_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 3)>,
+				<NRF_PSEL(TWIM_SCL, 0, 4)>;
+		};
+	};
+
+	i2c_pmod3b_sleep: i2c_pmod3b_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 3)>,
+				<NRF_PSEL(TWIM_SCL, 0, 4)>;
 			low-power-enable;
 		};
 	};
@@ -172,6 +394,40 @@
 		};
 	};
 
+	spi_pmod1a_default: spi_pmod1a_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 25)>,
+				<NRF_PSEL(SPIM_MISO, 0, 23)>;
+		};
+	};
+
+	spi_pmod1a_sleep: spi_pmod1a_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 25)>,
+				<NRF_PSEL(SPIM_MISO, 0, 23)>;
+			low-power-enable;
+		};
+	};
+
+	spi_pmod1b_default: spi_pmod1b_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 19)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 24)>,
+				<NRF_PSEL(SPIM_MISO, 0, 20)>;
+		};
+	};
+
+	spi_pmod1b_sleep: spi_pmod1b_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 19)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 24)>,
+				<NRF_PSEL(SPIM_MISO, 0, 20)>;
+			low-power-enable;
+		};
+	};
+
 	spi_pmod2_default: spi_pmod2_default {
 		group1 {
 			psels = <NRF_PSEL(SPIM_SCK, 0, 2)>,
@@ -189,6 +445,40 @@
 		};
 	};
 
+	spi_pmod2a_default: spi_pmod2a_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 2)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 0)>,
+				<NRF_PSEL(SPIM_MISO, 0, 1)>;
+		};
+	};
+
+	spi_pmod2a_sleep: spi_pmod2a_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 2)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 0)>,
+				<NRF_PSEL(SPIM_MISO, 0, 1)>;
+			low-power-enable;
+		};
+	};
+
+	spi_pmod2b_default: spi_pmod2b_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 29)>,
+				<NRF_PSEL(SPIM_MISO, 0, 18)>;
+		};
+	};
+
+	spi_pmod2b_sleep: spi_pmod2b_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 29)>,
+				<NRF_PSEL(SPIM_MISO, 0, 18)>;
+			low-power-enable;
+		};
+	};
+
 	spi_pmod3_default: spi_pmod3_default {
 		group1 {
 			psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
@@ -202,6 +492,40 @@
 			psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
 				<NRF_PSEL(SPIM_MOSI, 0, 6)>,
 				<NRF_PSEL(SPIM_MISO, 0, 7)>;
+			low-power-enable;
+		};
+	};
+
+	spi_pmod3a_default: spi_pmod3a_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 6)>,
+				<NRF_PSEL(SPIM_MISO, 0, 7)>;
+		};
+	};
+
+	spi_pmod3a_sleep: spi_pmod3a_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 6)>,
+				<NRF_PSEL(SPIM_MISO, 0, 7)>;
+			low-power-enable;
+		};
+	};
+
+	spi_pmod3b_default: spi_pmod3b_default {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 3)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 5)>,
+				<NRF_PSEL(SPIM_MISO, 0, 4)>;
+		};
+	};
+
+	spi_pmod3b_sleep: spi_pmod3b_sleep {
+		group1 {
+			psels = <NRF_PSEL(SPIM_SCK, 0, 3)>,
+				<NRF_PSEL(SPIM_MOSI, 0, 5)>,
+				<NRF_PSEL(SPIM_MISO, 0, 4)>;
 			low-power-enable;
 		};
 	};
