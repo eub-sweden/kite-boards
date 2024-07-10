@@ -95,8 +95,8 @@
 &uart0 {
 	status = "okay";
 	current-speed = <115200>;
-	pinctrl-0 = <&uart_pmod3_default>;
-	pinctrl-1 = <&uart_pmod3_sleep>;
+	pinctrl-0 = <&uart_pmod3a_default>;
+	pinctrl-1 = <&uart_pmod3a_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 

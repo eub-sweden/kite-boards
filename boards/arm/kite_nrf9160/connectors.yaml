@@ -12,6 +12,20 @@ connectors:
       io6: P0.24
       io7: P0.20  # P0.20 / AIN7
       io8: P0.19  # P0.19 / AIN6
+  - name: pmod1a
+    type: pmod-single
+    pins:
+      io1: P0.26
+      io2: P0.25
+      io3: P0.23
+      io4: P0.22
+  - name: pmod1b
+    type: pmod-single
+    pins:
+      io1: P0.27
+      io2: P0.24
+      io3: P0.20  # P0.20 / AIN7
+      io4: P0.19  # P0.19 / AIN6
   - name: pmod2
     type: pmod-double
     pins:
@@ -23,6 +37,20 @@ connectors:
       io6: P0.29
       io7: P0.18  # P0.18 / AIN5
       io8: P0.17  # P0.17 / AIN4
+  - name: pmod2a
+    type: pmod-single
+    pins:
+      io1: P0.31
+      io2: P0.00
+      io3: P0.01
+      io4: P0.02
+  - name: pmod2b
+    type: pmod-single
+    pins:
+      io1: P0.30
+      io2: P0.29
+      io3: P0.18  # P0.18 / AIN5
+      io4: P0.17  # P0.17 / AIN4
   - name: pmod3
     type: pmod-double
     pins:
@@ -34,6 +62,20 @@ connectors:
       io6: P0.05
       io7: P0.04
       io8: P0.03
+  - name: pmod3a
+    type: pmod-single
+    pins:
+      io1: P0.16  # P0.16 / AIN3
+      io2: P0.06
+      io3: P0.07
+      io4: P0.12
+  - name: pmod3b
+    type: pmod-single
+    pins:
+      io1: P0.08
+      io2: P0.05
+      io3: P0.04
+      io4: P0.03
   - name: pmod4
     type: pmod-single
     pins:

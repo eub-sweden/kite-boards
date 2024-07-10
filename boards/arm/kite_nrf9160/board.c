@@ -13,7 +13,7 @@
  * satisfied even when CONFIG_REGULATOR=n.
 */
 
-static int enable_regulator_at_boot(const struct device *unused)
+static int enable_regulator_at_boot(void)
 {
 	if (DT_NODE_HAS_PROP(DT_NODELABEL(en_pmod1), regulator_boot_on)) {
 		const struct gpio_dt_spec power_en =
