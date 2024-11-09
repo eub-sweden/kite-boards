@@ -36,15 +36,13 @@ def parse_pin(pindef):
     return { "port": m[1], "pin": int(m[2]) }
 
 def main(data_path):
-    path = "connectors.yaml"
-
     env = Environment(
         trim_blocks=True, lstrip_blocks=True, loader=FileSystemLoader(SCRIPT_DIR)
     )
     gpio_template = env.get_template(GPIO_TEMPLATE)
     pinctrl_template = env.get_template(PINCTRL_TEMPLATE)
 
-    for path in Path(data_path).rglob("connectors.yaml"):
+    for path in Path(data_path).rglob("connectors.yml"):
         board_path = path.parent
 
         infile = open(path, "r", encoding="utf-8")
