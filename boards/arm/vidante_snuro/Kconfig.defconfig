@@ -1,0 +1,13 @@
+# Vidante Snuro board configuration
+
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_VIDANTE_SNURO
+
+config BOARD
+	default "vidante_snuro"
+
+config BT_CTLR
+	default BT
+
+endif # BOARD_VIDANTE_SNURO

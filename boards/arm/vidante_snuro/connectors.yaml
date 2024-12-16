@@ -1,0 +1,9 @@
+name: vidante_snuro
+connectors:
+  - name: pmod1
+    type: pmod-single
+    pins:
+      io1: P0.02
+      io2: P0.03
+      io3: P0.04
+      io4: P1.05

@@ -1,0 +1,208 @@
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include "vidante_snuro-pinctrl.dtsi"
+#include "vidante_snuro-connectors-gpio.dtsi"
+#include "vidante_snuro-connectors-pinctrl.dtsi"
+
+/ {
+	model = "Vidante Snuro";
+	compatible = "eub,vidante_snuro";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart0;
+		zephyr,bt-mon-uart = &uart0;
+		zephyr,bt-c2h-uart = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &slot0_partition;
+		zephyr,ieee802154 = &ieee802154;
+	};
+
+	/* These aliases are provided for compatibility with samples */
+	aliases {
+		led0 = &green_led;
+		led1 = &blue_led;
+		pwm-led0 = &pwm_led0;
+		sw0 = &user_button;
+		bootloader-led0 = &green_led;
+		mcuboot-button0 = &user_button;
+		mcuboot-led0 = &green_led;
+		watchdog0 = &wdt0;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		green_led: green_led {
+			gpios = <&gpio0 23 0>;
+		};
+		blue_led: blue_led {
+			gpios = <&gpio0 22 0>;
+		};
+	};
+
+	pwmleds {
+		compatible = "pwm-leds";
+		pwm_led0: pwm_led_0 {
+			pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		};
+
+		pwm_led1: pwm_led_1 {
+			pwms = <&pwm1 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		};
+	};
+
+	buttons {
+		/* Warning: This pin is NC, left it in for sample compatibility
+		 */
+		compatible = "gpio-keys";
+		user_button: user_button {
+			gpios = <&gpio0 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		};
+
+		in1_mcu: in1_mcu {
+			gpios = <&gpio0 24 0>;
+		};
+
+		in2_mcu: in2_mcu {
+			gpios = <&gpio0 28 0>;
+		};
+	};
+
+	zephyr,user {
+		out1-24v-gpios        = <&gpio0 29 GPIO_ACTIVE_LOW>;
+		out2-24v-gpios        = <&gpio0 30 GPIO_ACTIVE_LOW>;
+		out3-24v-gpios        = <&gpio0 31 GPIO_ACTIVE_LOW>;
+
+		hw-version-rev0-gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
+		hw-version-rev1-gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+	};
+
+};
+
+&adc {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&pwm0 {
+	status = "okay";
+	pinctrl-0 = <&pwm0_default>;
+	pinctrl-1 = <&pwm0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&pwm1 {
+	status = "okay";
+	pinctrl-0 = <&pwm1_default>;
+	pinctrl-1 = <&pwm1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&uart_pmod1_default>;
+	pinctrl-1 = <&uart_pmod1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart1 {
+	status = "okay";
+	current-speed = <19200>;
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-1 = <&uart1_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	modbus0 {
+		compatible = "zephyr,modbus-serial";
+		status = "okay";
+		de-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
+		re-gpios = <&gpio0 19 GPIO_ACTIVE_LOW>;
+	};
+};
+
+&spi2 {
+	compatible = "nordic,nrf-spim";
+	status = "okay";
+	pinctrl-0 = <&spi2_default>;
+	pinctrl-1 = <&spi2_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+	a1x1@0 {
+		compatible = "acc,a121";
+		status = "okay";
+		label = "A1X1_0";
+		reg = <0x0>;
+
+		spi-max-frequency = <20000000>;
+		board-ref-freq    = <24000000>;
+		sensor-stab-time  = <2000>;
+
+		irq-gpios         = <&gpio0 7  GPIO_ACTIVE_HIGH>;
+		enable-gpios      = <&gpio0 8  GPIO_ACTIVE_HIGH>;
+		// FIXME: add this to radar yaml
+		/* reset-gpios       = <&gpio0 12 GPIO_ACTIVE_LOW>; */
+	};
+
+};
+
+&ieee802154 {
+	status = "okay";
+};
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 0x0000C000>;
+		};
+		slot0_partition: partition@c000 {
+			label = "image-0";
+			reg = <0x0000C000 0x00076000>;
+		};
+		slot1_partition: partition@82000 {
+			label = "image-1";
+			reg = <0x00082000 0x00076000>;
+		};
+
+		/*
+		 * The flash starting at 0x000f8000 and ending at
+		 * 0x000fffff is reserved for use by the application.
+		 */
+
+		/*
+		 * Storage partition will be used by FCB/LittleFS/NVS
+		 * if enabled.
+		 */
+		storage_partition: partition@f8000 {
+			label = "storage";
+			reg = <0x000f8000 0x00008000>;
+		};
+	};
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&uicr {
+	gpio-as-nreset;
+};
