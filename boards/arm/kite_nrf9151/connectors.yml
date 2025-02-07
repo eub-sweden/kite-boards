@@ -1,0 +1,85 @@
+# Note: This file is picked up by ${EUB_ROOT}/scripts/gen-connectors-dtsi.py
+name: kite_nrf9151
+connectors:
+  - name: pmod1
+    type: pmod-double
+    pins:
+      io1: P0.03
+      io2: P0.02
+      io3: P0.01
+      io4: P0.00
+      io5: P0.27
+      io6: P0.28
+      io7: P0.30
+      io8: P0.29
+  - name: pmod1a
+    type: pmod-single
+    pins:
+      io1: P0.03
+      io2: P0.02
+      io3: P0.01
+      io4: P0.00
+  - name: pmod1b
+    type: pmod-single
+    pins:
+      io1: P0.27
+      io2: P0.28
+      io3: P0.30
+      io4: P0.29
+  - name: pmod2
+    type: pmod-double
+    pins:
+      io1: P0.11
+      io2: P0.10
+      io3: P0.09
+      io4: P0.08
+      io5: P0.04
+      io6: P0.05
+      io7: P0.06
+      io8: P0.07
+  - name: pmod2a
+    type: pmod-single
+    pins:
+      io1: P0.11
+      io2: P0.10
+      io3: P0.09
+      io4: P0.09
+  - name: pmod2b
+    type: pmod-single
+    pins:
+      io1: P0.04
+      io2: P0.05
+      io3: P0.06
+      io4: P0.07
+  - name: pmod3
+    type: pmod-double
+    pins:
+      io1: P0.19  # /AIN6
+      io2: P0.18  # /AIN5
+      io3: P0.17  # /AIN4
+      io4: P0.16  # /AIN2
+      io5: P0.12  # /AIN6
+      io6: P0.13  # /AIN0
+      io7: P0.14  # /AIN1
+      io8: P0.15  # /AIN2
+  - name: pmod3a
+    type: pmod-single
+    pins:
+      io1: P0.19  # /AIN6
+      io2: P0.18  # /AIN5
+      io3: P0.17  # /AIN4
+      io4: P0.16  # /AIN2
+  - name: pmod3b
+    type: pmod-single
+    pins:
+      io1: P0.12  # /AIN6
+      io2: P0.13  # /AIN0
+      io3: P0.14  # /AIN1
+      io4: P0.15  # /AIN2
+  - name: pmod4
+    type: pmod-single
+    pins:
+      io1: P0.20  # /AIN7
+      io2: P0.23
+      io3: P0.22
+      io4: P0.21
