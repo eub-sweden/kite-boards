@@ -3,9 +3,9 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-#include "kite_nrf9160_common-pinctrl.dtsi"
-#include "kite_nrf9160-connectors-gpio.dtsi"
-#include "kite_nrf9160-connectors-pinctrl.dtsi"
+#include "kite_nrf9160_nrf9160_common-pinctrl.dtsi"
+#include "kite_nrf9160_nrf9160-connectors-gpio.dtsi"
+#include "kite_nrf9160_nrf9160-connectors-pinctrl.dtsi"
 #include <dt-bindings/gpio/pmod.h>
 
 / {
@@ -192,4 +192,4 @@
 };
 
 /* Include partition configuration file */
-#include "kite_nrf9160_partition_conf.dts"
+#include "kite_nrf9160_nrf9160_partition_conf.dts"
