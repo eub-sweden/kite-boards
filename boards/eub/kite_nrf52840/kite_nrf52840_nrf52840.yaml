@@ -1,4 +1,4 @@
-identifier: kite_nrf52840
+identifier: kite_nrf52840/nrf52840
 name: Kite-nRF52840
 type: mcu
 arch: arm

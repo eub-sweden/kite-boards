@@ -1,0 +1,6 @@
+board:
+  name: kite_nrf52840
+  full_name: Kite-nRF52840
+  vendor: eub
+  socs:
+  - name: nrf52840
