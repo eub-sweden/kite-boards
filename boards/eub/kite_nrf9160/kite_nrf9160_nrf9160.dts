@@ -6,7 +6,7 @@
 
 /dts-v1/;
 #include <nordic/nrf9160_sica.dtsi>
-#include "kite_nrf9160_common.dts"
+#include "kite_nrf9160_nrf9160_common.dts"
 
 / {
 	chosen {

@@ -1,0 +1,8 @@
+board:
+  name: kite_nrf9160
+  full_name: Kite-nRF9160-Non-Secure
+  vendor: nordic
+  socs:
+  - name: nrf9160
+    variants:
+    - name: 'ns'

@@ -1,17 +1,15 @@
-identifier: kite_nrf9160
-name: Kite-nRF9160
+identifier: kite_nrf9160/nrf9160/ns
+name: Kite-nRF9160-Non-Secure
 type: mcu
 arch: arm
 toolchain:
   - gnuarmemb
   - xtools
   - zephyr
-ram: 88
-flash: 1024
+ram: 128
+flash: 192
 supported:
-  - gpio
   - i2c
   - pwm
-  - spi
   - watchdog
-  - counter
+  - netif:modem
