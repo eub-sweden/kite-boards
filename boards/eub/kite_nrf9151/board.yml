@@ -1,0 +1,8 @@
+board:
+  name: kite_nrf9151
+  full_name: Kite-nRF915
+  vendor: eub
+  socs:
+  - name: nrf9151
+    variants:
+    - name: 'ns'
