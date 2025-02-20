@@ -1,8 +1,8 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-#include "kite_nrf52840-pinctrl.dtsi"
-#include "kite_nrf52840-connectors-gpio.dtsi"
-#include "kite_nrf52840-connectors-pinctrl.dtsi"
+#include "kite_nrf52840_nrf52840-pinctrl.dtsi"
+#include "kite_nrf52840_nrf52840-connectors-gpio.dtsi"
+#include "kite_nrf52840_nrf52840-connectors-pinctrl.dtsi"
 
 / {
 	model = "Kite nRF52840";
