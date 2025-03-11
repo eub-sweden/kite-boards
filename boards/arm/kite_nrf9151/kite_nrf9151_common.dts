@@ -3,14 +3,14 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-#include "kite_nrf9160_common-pinctrl.dtsi"
-#include "kite_nrf9160-connectors-gpio.dtsi"
-#include "kite_nrf9160-connectors-pinctrl.dtsi"
+#include "kite_nrf9151_common-pinctrl.dtsi"
+#include "kite_nrf9151-connectors-gpio.dtsi"
+#include "kite_nrf9151-connectors-pinctrl.dtsi"
 #include <dt-bindings/gpio/pmod.h>
 
 / {
-	model = "EUB Kite-nRF9160";
-	compatible = "eub,kite-nrf9160";
+	model = "EUB Kite-nRF9151";
+	compatible = "eub,kite-nrf9151";
 
 	chosen {
 		zephyr,console = &uart0;
@@ -21,11 +21,11 @@
 	leds {
 		compatible = "gpio-leds";
 		led0: led_0 {
-			gpios = <&gpio0 10 0>;
+			gpios = <&gpio0 24 0>;
 			label = "Green LED";
 		};
 		led1: led_1 {
-			gpios = <&gpio0 9 0>;
+			gpios = <&gpio0 25 0>;
 			label = "Orange LED";
 		};
 	};
@@ -40,7 +40,7 @@
 	buttons {
 		compatible = "gpio-keys";
 		button0: button_0 {
-			gpios = <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			gpios = <&gpio0 31 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			label = "USER_BUTTON";
 		};
 	};
@@ -74,7 +74,7 @@
 		status = "okay";
 		regulator-name = "EN_PMOD1";
 
-		enable-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
 		regulator-boot-on;
 	};
 
@@ -102,8 +102,8 @@
 
 &i2c2 {
 	status = "disabled";
-	pinctrl-0 = <&i2c_pmod1_default>;
-	pinctrl-1 = <&i2c_pmod1_sleep>;
+	pinctrl-0 = <&i2c_pmod1a_default>;
+	pinctrl-1 = <&i2c_pmod1a_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 
@@ -119,8 +119,8 @@
 	status = "disabled";
 
 	cs-gpios = <&pmod2 PMOD_SPI_CS GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&spi_pmod2_default>;
-	pinctrl-1 = <&spi_pmod2_sleep>;
+	pinctrl-0 = <&spi_pmod2a_default>;
+	pinctrl-1 = <&spi_pmod2a_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 
@@ -192,4 +192,4 @@
 };
 
 /* Include partition configuration file */
-#include "kite_nrf9160_partition_conf.dts"
+#include "kite_nrf9151_partition_conf.dts"
