@@ -1,0 +1,14 @@
+# Minimal-nRF9151
+
+# Copyright (c) 2023 Elektronikutvecklingsbyrån EUB AB
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_NRF9151_LACA
+
+config BOARD_MINIMAL_NRF9151
+	bool "Minimal-nRF9151"
+
+config BOARD_MINIMAL_NRF9151_NS
+	bool "Minimal-nRF9151 non-secure"
+
+endif # SOC_NRF9151_LACA
