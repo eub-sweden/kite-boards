@@ -4,8 +4,8 @@
 
 if BOARD_KITE_NRF52840_NRF52840
 
-config BOARD
-	default "kite_nrf52840"
+config HW_STACK_PROTECTION
+	default ARCH_HAS_STACK_PROTECTION
 
 config BT_CTLR
 	default BT
