@@ -32,7 +32,7 @@ connectors:
       io1: P0.11
       io2: P0.10
       io3: P0.09
-      io4: P0.09
+      io4: P0.08
       io5: P0.04
       io6: P0.05
       io7: P0.06
