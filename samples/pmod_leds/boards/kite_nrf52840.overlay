@@ -1,0 +1,144 @@
+/* Disable UART0 which is muxed to Pmod 1 by default. */
+&uart0 {
+	status = "disabled";
+};
+
+/ {
+	leds_pmod1 {
+		compatible = "gpio-leds";
+		status = "okay";
+		led0 {
+			gpios = <&pmod1 0 GPIO_ACTIVE_LOW>;
+		};
+		led1 {
+			gpios = <&pmod1 1 GPIO_ACTIVE_LOW>;
+		};
+		led2 {
+			gpios = <&pmod1 2 GPIO_ACTIVE_LOW>;
+		};
+		led3 {
+			gpios = <&pmod1 3 GPIO_ACTIVE_LOW>;
+		};
+		led4 {
+			gpios = <&pmod1 4 GPIO_ACTIVE_LOW>;
+		};
+		led5 {
+			gpios = <&pmod1 5 GPIO_ACTIVE_LOW>;
+		};
+		led6 {
+			gpios = <&pmod1 6 GPIO_ACTIVE_LOW>;
+		};
+		led7 {
+			gpios = <&pmod1 7 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	leds_pmod2 {
+		compatible = "gpio-leds";
+		status = "okay";
+		led0 {
+			gpios = <&pmod2 0 GPIO_ACTIVE_LOW>;
+		};
+		led1 {
+			gpios = <&pmod2 1 GPIO_ACTIVE_LOW>;
+		};
+		led2 {
+			gpios = <&pmod2 2 GPIO_ACTIVE_LOW>;
+		};
+		led3 {
+			gpios = <&pmod2 3 GPIO_ACTIVE_LOW>;
+		};
+		led4 {
+			gpios = <&pmod2 4 GPIO_ACTIVE_LOW>;
+		};
+		led5 {
+			gpios = <&pmod2 5 GPIO_ACTIVE_LOW>;
+		};
+		led6 {
+			gpios = <&pmod2 6 GPIO_ACTIVE_LOW>;
+		};
+		led7 {
+			gpios = <&pmod2 7 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	leds_pmod3 {
+		compatible = "gpio-leds";
+		status = "okay";
+		led0 {
+			gpios = <&pmod3 0 GPIO_ACTIVE_LOW>;
+		};
+		led1 {
+			gpios = <&pmod3 1 GPIO_ACTIVE_LOW>;
+		};
+		led2 {
+			gpios = <&pmod3 2 GPIO_ACTIVE_LOW>;
+		};
+		led3 {
+			gpios = <&pmod3 3 GPIO_ACTIVE_LOW>;
+		};
+		led4 {
+			gpios = <&pmod3 4 GPIO_ACTIVE_LOW>;
+		};
+		led5 {
+			gpios = <&pmod3 5 GPIO_ACTIVE_LOW>;
+		};
+		led6 {
+			gpios = <&pmod3 6 GPIO_ACTIVE_LOW>;
+		};
+		led7 {
+			gpios = <&pmod3 7 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	leds_pmod4 {
+		compatible = "gpio-leds";
+		status = "okay";
+		led0 {
+			gpios = <&pmod4 0 GPIO_ACTIVE_LOW>;
+		};
+		led1 {
+			gpios = <&pmod4 1 GPIO_ACTIVE_LOW>;
+		};
+		led2 {
+			gpios = <&pmod4 2 GPIO_ACTIVE_LOW>;
+		};
+		led3 {
+			gpios = <&pmod4 3 GPIO_ACTIVE_LOW>;
+		};
+		led4 {
+			gpios = <&pmod4 4 GPIO_ACTIVE_LOW>;
+		};
+		led5 {
+			gpios = <&pmod4 5 GPIO_ACTIVE_LOW>;
+		};
+		led6 {
+			gpios = <&pmod4 6 GPIO_ACTIVE_LOW>;
+		};
+		led7 {
+			gpios = <&pmod4 7 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	/* This is the "power Pmod" connector. NOTE: the LED
+	 * the VDD pin on this connector does not power the module
+	 * since the board expects to receive power via that pin.
+	 * To test this port you need to jump the power somehow
+	 * for example using a tweezer. */
+	leds_pmod5 {
+		compatible = "gpio-leds";
+		status = "okay";
+		led0 {
+			gpios = <&pmod5 0 GPIO_ACTIVE_LOW>;
+		};
+		led1 {
+			gpios = <&pmod5 1 GPIO_ACTIVE_LOW>;
+		};
+		led2 {
+			gpios = <&pmod5 2 GPIO_ACTIVE_LOW>;
+		};
+		led3 {
+			gpios = <&pmod5 3 GPIO_ACTIVE_LOW>;
+		};
+	};
+};
