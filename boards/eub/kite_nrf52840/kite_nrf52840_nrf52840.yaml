@@ -7,7 +7,6 @@ flash: 1024
 toolchain:
   - zephyr
   - gnuarmemb
-  - xtools
 supported:
   - adc
   - ble
@@ -19,6 +18,7 @@ supported:
   - spi
   - usb_cdc
   - usb_device
+  - usbd
   - watchdog
   - netif:openthread
-vendor: nordic
+vendor: eub
